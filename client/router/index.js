@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Dashboard from 'views/Dashboard'
-import Post from 'views/Post'
-import About from 'views/About'
+import Dashboard from 'components/pages/Dashboard'
+import Post from 'components/pages/Post'
+import About from 'components/pages/About'
 
 Vue.use(Router)
 

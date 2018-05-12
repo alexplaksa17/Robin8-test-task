@@ -33,7 +33,6 @@ module.exports = {
     alias: {
       root: path.join(__dirname, '../client'),
       components: path.join(__dirname, '../client/components'),
-      views: path.join(__dirname, '../client/views'),
       router: path.join(__dirname, '../client/router'),
       theme: path.join(__dirname, '../theme'), // get Element-UI icons
       scss_vars: path.resolve(__dirname, '../client/styles/vars.scss'), //  get scss vars

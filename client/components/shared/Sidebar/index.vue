@@ -4,7 +4,8 @@
         <div class="logo-container">
             <img class="logo" src="https://vuejs.org/images/logo.png" />
         </div>
-          <el-menu-item index="/">Dashboard</el-menu-item>
+          <el-menu-item index="/">Ready templates</el-menu-item>
+          <el-menu-item index="/builder">Builder</el-menu-item>
          <el-submenu index="1">
            <template slot="title">
                Categories
@@ -21,7 +22,7 @@
              <el-menu-item index="/post/4">Post #4</el-menu-item>
            </el-submenu>
          </el-submenu>
-         <el-menu-item index="/about">About</el-menu-item>
+         <el-menu-item index="/results">Results</el-menu-item>
        </el-menu>
    </div>
 </template>

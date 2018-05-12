@@ -21,3 +21,7 @@ export default {
   components: {}
 }
 </script>
+<style lang="scss">
+// You can import all your SCSS variables using webpack alias
+
+</style>

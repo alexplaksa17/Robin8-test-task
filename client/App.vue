@@ -1,7 +1,6 @@
 <template>
 <div id="app">
     <div class="page-layout">
-        <sidebar-component :active="sidebarOpened" />
         <div class="page-layout-inner">
             <header-component :openSidebar="openSidebar" :title="title" />
             <main>
@@ -17,9 +16,8 @@
 </div>
 </template>
 <script>
-import Header from 'components/Header'
-import Sidebar from 'components/Sidebar'
-import Dimmer from 'components/Dimmer'
+import Header from 'components/shared/Header'
+import Dimmer from 'components/shared/Dimmer'
 import { mapActions, mapState } from 'vuex'
 
 export default {
@@ -42,7 +40,6 @@ export default {
   },
   components: {
     'header-component': Header,
-    'sidebar-component': Sidebar,
     Dimmer
   },
   created: function () {
@@ -52,6 +49,18 @@ export default {
 </script>
 
 <style lang="scss">
+body {
+  margin: 0;
+  #app .page-layout main {
+    z-index: 1000;
+    padding-top: 80px;
+    transition-property: transform;
+  }
+  #app .page-layout main .main-content .container {
+    margin-top: 0;
+    max-width: 1140px;
+    padding: 0 20px;
+  }
+}
 // You can import all your SCSS variables using webpack alias
-@import '~scss_vars';
-@import './style.scss';</style>
+</style>
