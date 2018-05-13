@@ -1,7 +1,7 @@
 {
-  "name": "Vue-Element-Starter",
+  "name": "Robin7-test-task",
   "version": "1.0.0",
-  "description": "Vue-Element-Starter",
+  "description": "Robin7-test-task",
   "main": "client/index.js",
   "scripts": {
     "test": "testcafe all tests/index.js --app \"npm run dev\" --app-init-delay 10000",
@@ -11,7 +11,7 @@
     "generate_default_styles": "et -i ./client/styles/element-variables.css",
     "generate_theme": "et -c ./client/styles/element-variables.css"
   },
-  "author": "Vladimir Metnev <vladimirmetnew@gmail.com>",
+  "author": "Oleksandr Plaksa <alexplaksa17@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "babel-runtime": "^6.23.0",

@@ -6,21 +6,21 @@
     </modal>
     <div class="desk-head">
       <el-button type="primary" @click="openModal" icon="el-icon-plus" circle></el-button>
-      <el-input
-        placeholder="Type something"
-        prefix-icon="el-icon-search"
-        v-model="search">
-      </el-input>
-      <el-select v-model="search" clearable placeholder="Select">
+      <el-select v-model="sortingby" placeholder="Sort by">
         <el-option
           v-for="item in options"
           :key="item.value"
           :label="item.label"
-          :value="item.value">
+          :value="item.value"
+          ></slot>
         </el-option>
       </el-select>
+      <template>
+        <el-radio v-model="directSorting" :label="true" :border="false" fill="#fff"><i class="el-icon-arrow-down"></i></el-radio>
+        <el-radio v-model="directSorting" :label="false" :border="false" fill="#fff"><i class="el-icon-arrow-up"></i></el-radio>
+      </template>
     </div>
-    <tasks-list :elements="taskCards"></tasks-list>
+    <tasks-list :elements="currentSort.length ? currentSort : taskCards"></tasks-list>
   </div>
 </template>
 
@@ -48,28 +48,18 @@ export default {
         date: ''
       },
       options: [
-         {
-          value: 'Option1',
-          label: 'Option1'
+          {
+          value: 'title',
+          label: 'By title'
           },
           {
-          value: 'Option2',
-          label: 'Option2'
-          },
-          {
-          value: 'Option3',
-          label: 'Option3'
-          },
-          {
-          value: 'Option4',
-          label: 'Option4'
-          },
-        ],
-        search: '',
-        sortingby: [],
-        sortingOrder:[],
-        currentSort:[],
-        cardsData: []
+          value: 'date',
+          label: 'By date'
+          }
+      ],
+      search: '',
+      sortingby: 'title',
+      directSorting: true,
 
 
     }
@@ -78,6 +68,16 @@ export default {
     ...mapGetters({
         taskCards: 'getTaskCards'
     }),
+    currentSort: function () {
+      return this.currentSort=this.taskCards.sort( (a,b) => {
+        if (this.sortingby==="title") {
+          return (this.directSorting ? (a.title < b.title) : (a.title > b.title) ) ? -1 : (a.title === b.title) ? 0 : 1;
+        }
+        if (this.sortingby==="date") {
+          return (this.directSorting ? (a.date < b.date) : (a.date > b.date) ) ? -1 : (a.date === b.date) ? 0 : 1;
+        }
+      })
+    }
   },
   methods: {
     openModal () {
@@ -99,6 +99,16 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 50%;
+  padding: 10px;
+  padding-left: 50px;
+
+  .el-radio {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
   button, div {
     margin: 0 10px;
   }

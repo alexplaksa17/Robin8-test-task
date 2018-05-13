@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-dialog title="Shipping address" :visible="shown" >
+    <el-dialog title="New task" :visible="shown" >
       <slot></slot>
       <span slot="footer" class="dialog-footer">
       </span>

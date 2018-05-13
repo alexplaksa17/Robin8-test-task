@@ -4,20 +4,19 @@
       <el-input v-model="newTask.title"></el-input>
     </el-form-item>
     <el-form-item label="Task priority" prop="priority">
-      <el-select v-model="newTask.priority" placeholder="please select your zone">
+      <el-select v-model="newTask.priority" placeholder="select task priority">
         <el-option label="High" value="high"></el-option>
         <el-option label="Medium" value="medium"></el-option>
         <el-option label="Low" value="low"></el-option>
       </el-select>
     </el-form-item>
     <el-form-item label="Task category" prop="category">
-      <el-select v-model="newTask.category" placeholder="please select your zone">
-        <el-option label="Sport" value="sport"></el-option>
-        <el-option label="Chill" value="chill"></el-option>
+      <el-select filterable allow-create v-model="newTask.category" placeholder="please select category">
+        <el-option v-for="category in categories" :label="category.label" :value="category.value"></el-option>
       </el-select>
     </el-form-item>
     <el-form-item label="Task date" prop="date">
-      <el-date-picker type="date" placeholder="Pick a date" v-model="newTask.date" value-format="timestamp"></el-date-picker>
+      <el-date-picker type="date" :picker-options="pickerOptions" placeholder="pick a date" v-model="newTask.date" value-format="timestamp"></el-date-picker>
     </el-form-item>
     <el-form-item label="Task description" prop="description">
       <el-input type="textarea" v-model="newTask.description"></el-input>
@@ -46,6 +45,11 @@ export default {
         category: '',
         date: ''
       },
+      pickerOptions: {
+        disabledDate: function (date) {
+          return Date.now()>=date.getTime()
+        }
+      },
       rules: {
         title: [
           { required: true, message: 'Please input title', trigger: 'blur' },
@@ -65,6 +69,11 @@ export default {
         ]
       }
     };
+  },
+  computed: {
+    ...mapGetters({
+        categories: 'getCategories'
+    }),
   },
   methods: {
     closeModal () {
@@ -100,6 +109,9 @@ export default {
 }
 </script>
 <style lang="scss">
+.el-dialog__headerbtn {
+  display: none;
+}
 .el-picker-panel.el-date-picker.el-popper {
   width: 70px;
 }

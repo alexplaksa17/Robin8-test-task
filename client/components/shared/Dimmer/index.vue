@@ -6,7 +6,7 @@
 <script>
 export default {
   name: 'Dimmer',
-  props: ['active', 'closeSidebar']
+  props: ['active']
 }
 </script>
 

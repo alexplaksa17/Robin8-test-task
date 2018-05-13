@@ -1,18 +1,7 @@
 <template>
 <header>
     <el-menu theme="dark" mode="horizontal">
-        <el-menu-item class="header-navicon" index="1">
-            <el-button type="text" @click="openSidebar">
-                <i class="md-icon">menu</i>
-            </el-button>
-        </el-menu-item>
         <span class="header-title">{{title}}</span>
-        <el-submenu class="header-menu" index="3">
-            <template slot="title">Workspace</template>
-                <el-menu-item index="4-1">item one</el-menu-item>
-                <el-menu-item index="4-2">item two</el-menu-item>
-                <el-menu-item index="4-3">item three</el-menu-item>
-            </el-submenu>
         </el-menu>
     </header>
 </template>
@@ -43,6 +32,8 @@ header {
     height: $header-height;
       .el-menu {
         border-radius: 0;
+        background: #0033cc;
+
     }
 
     &.no_sidebar {
@@ -69,7 +60,7 @@ header {
     .header-title {
         font-size: 24px;
         color: $white;
-        margin-left: 0;
+        margin-left: 15px;
         line-height: 60px;
         @include respond-to('lg') {
             margin-left: 24px;
