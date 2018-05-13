@@ -1,3 +1,21 @@
+<template>
+<header>
+    <el-menu theme="dark" mode="horizontal">
+        <span class="header-title">{{title}}</span>
+        </el-menu>
+    </header>
+</template>
+
+<script>
+export default {
+  name: 'Header',
+  props: ['openSidebar', 'title']
+}
+</script>
+
+<style lang="scss">
+// You can import all your SCSS variables using webpack alias
+@import '~scss_vars';
 header {
     z-index: 6;
     background: #fff;
@@ -12,18 +30,10 @@ header {
     transition-property: transform;
     width: 100%;
     height: $header-height;
-
-    @include respond-to('sm', 'xs') {
-        transform: translate3d(0, 0, 0)!important;
-    }
-
-    @include respond-to('lg') {
-        width: calc(100% - #{$sidebar-size});
-        transform: translate3d($sidebar-size, 0, 0)!important;
-    }
-
-    .el-menu {
+      .el-menu {
         border-radius: 0;
+        background: #0033cc;
+
     }
 
     &.no_sidebar {
@@ -50,10 +60,11 @@ header {
     .header-title {
         font-size: 24px;
         color: $white;
-        margin-left: 0;
+        margin-left: 15px;
         line-height: 60px;
         @include respond-to('lg') {
             margin-left: 24px;
         }
     }
 }
+</style>

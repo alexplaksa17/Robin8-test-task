@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { sync } from 'vuex-router-sync'
 import Element from 'element-ui'
-import App from 'components/App' // require components using webpack alias
+import App from 'App.vue' // require components using webpack alias
 import { router } from './router' // Vue Router
 import store from './store' // Vuex store
 import locale from 'element-ui/lib/locale/lang/en'
