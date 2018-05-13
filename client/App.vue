@@ -58,7 +58,6 @@ body {
   }
   #app .page-layout main .main-content .container {
     margin-top: 0;
-    max-width: 1140px;
     padding: 0 20px;
   }
 }

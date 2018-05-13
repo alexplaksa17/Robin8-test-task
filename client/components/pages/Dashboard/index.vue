@@ -99,7 +99,7 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 50%;
+  width: 30%;
   padding: 10px;
   padding-left: 50px;
 
@@ -109,8 +109,8 @@ export default {
     justify-content: center;
     align-items: center;
   }
-  button, div {
-    margin: 0 10px;
+  button, div, label {
+    margin: 0 5px;
   }
 
 
