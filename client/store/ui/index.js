@@ -10,14 +10,6 @@ const state = {
 }
 
 const mutations = {
-  [CLOSE_SIDEBAR] (state) {
-    state.sidebarOpened = false
-    state.obfuscatorActive = false
-  },
-  [OPEN_SIDEBAR] (state) {
-    state.sidebarOpened = true
-    state.obfuscatorActive = true
-  },
   [LOCATION_CHANGE] (state) {
     state.sidebarOpened = false
     state.obfuscatorActive = false
@@ -31,12 +23,6 @@ const mutations = {
 }
 
 const actions = {
-  openSidebar ({ commit }) {
-    commit({ type: OPEN_SIDEBAR })
-  },
-  closeSidebar ({ commit }) {
-    commit({ type: CLOSE_SIDEBAR })
-  },
   handleResize ({ commit }) {
     commit({ type: WINDOW_RESIZE })
   }

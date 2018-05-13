@@ -1,10 +1,8 @@
 <template>
   <div>
-    <span>{{modalVisibility}}</span>
-    <el-dialog title="Shipping address" :visible="modalVisibility">
+    <el-dialog title="Shipping address" :visible="shown" >
+      <slot></slot>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="closeModal">Cancel</el-button>
-        <el-button type="primary" @click="closeModal">Confirm</el-button>
       </span>
     </el-dialog>
   </div>
@@ -12,21 +10,21 @@
 
 <script>
   export default {
+    name:'Modal',
     props: {
-      show: {
+      shown: {
         default: false,
         type: Boolean
       }
     },
     data: function () {
       return {
-        modalVisibility: this.show,
         formLabelWidth: '120px'
       };
     },
-    methods: {
+    methods : {
       closeModal () {
-        this.modalVisibility = true
+        this.$emit('close-modal')
       }
     }
   };
